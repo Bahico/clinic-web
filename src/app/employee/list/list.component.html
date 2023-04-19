@@ -1,0 +1,25 @@
+<div class="employee-list" [ngClass]="{'home': page === 'home'}">
+  <div class="container">
+    <div class="employee-title">
+      <h1>{{'employee.title' | translate}}</h1>
+      <p routerLink="/employee">{{'employee.description' | translate}}</p>
+    </div>
+
+    <div class="employee-container">
+      <div class="list" infinite-scroll (scrolled)="onScrolled()">
+        <div class="employee" *ngFor="let employee of service.data" (click)="clickEmployee(employee)">
+          <div class="image">
+            <img [src]="employee.image" alt="">
+          </div>
+          <div>
+            <h3>{{employee.first_name}} {{employee.last_name}}</h3>
+            <p>{{employee.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<employee-detail [user]="employee"  (active)="clickEdit($event)" *ngIf="employee"></employee-detail>
+

@@ -1,0 +1,47 @@
+<div class="title-container">
+  <div>
+    <h1>{{'product.title' | translate}}</h1>
+  </div>
+  <div>
+    <p routerLink="/product" class="description">{{'product.description' | translate}}</p>
+  </div>
+</div>
+
+<div class="product-search">
+  <input type="text" #input1 [(ngModel)]="service.name" placeholder="{{'product.search' | translate}}">
+  <span nz-icon nzType="search" nzTheme="outline"></span>
+</div>
+
+<div class="product-list" infinite-scroll (scrolled)="onScrolled()" *ngIf="page === ''">
+  <div class="container">
+    <div class="product" *ngFor="let product of service.data" (click)="clickCancel(product)">
+      <img [src]="product.image" [alt]="product.name">
+      <div class="name">
+        <p>{{product.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="product-list home" *ngIf="page === 'home'">
+  <div class="container">
+    <div class="product" *ngFor="let product of service.data" (click)="clickCancel(product)">
+      <img [src]="product.image" [alt]="product.name">
+      <div class="name">
+        <p>{{product.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nz-drawer
+  [nzClosable]="false"
+  [nzVisible]="visible"
+  nzPlacement="right"
+  (nzOnClose)="clickCancel()"
+>
+  <ng-container *nzDrawerContent>
+    <app-detail [product]="id" (active)="clickEdit($event)"></app-detail>
+  </ng-container>
+</nz-drawer>

@@ -1,0 +1,105 @@
+.navbar {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #ceeeef;
+  z-index: 900;
+  .menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 22px;
+  }
+  .logo {
+    margin-left: 50px;
+    background: none;
+    img {
+      width: 200px;
+      height: 80px;
+      object-fit: cover;
+      align-items: center;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  .navbar-list {
+    transition: .5s;
+    background: none;
+    display: flex;
+    width: 100%;
+    font-size: 18px;
+    justify-content: center;
+    ::ng-deep .ant-menu-item {
+      background: none;
+      align-items: center;
+      display: flex;
+      color: rgba(35, 35, 35, 0.8);
+    }
+    .close-li {
+      display: none;
+      .close {
+        transform: rotateZ(45deg);
+      }
+    }
+  }
+  ::ng-deep .ant-menu-horizontal {
+    border-bottom: none;
+  }
+  ::ng-deep .ant-menu-submenu {
+    align-items: center;
+    display: flex;
+    color: rgba(35, 35, 35, 0.8);
+  }
+}
+
+.navbar-open:host {
+  .navbar-list {
+    text-align: center;
+    background: #ceeeef;
+    transform: translateX(0) !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.navbar {
+  justify-content: space-between;
+  button {
+    margin: 15px 15px 15px 0;
+  }
+}
+
+
+@media screen and (max-width: 1100px) {
+  .navbar {
+    .navbar-list {
+      display: block;
+      position: fixed;
+      transform: translateX(100%);
+      text-align: center;
+      ::ng-deep .ant-menu-item {
+        display: block;
+      }::ng-deep .ant-menu-submenu {
+        display: block;
+      }
+      .close-li {
+        display: block;
+        width: 100%;
+        text-align: end;
+        font-size: 22px;
+        padding-right: 15px;
+      }
+      button {
+        margin: 0;
+      }
+    }
+    .menu {
+      display: block;
+    }
+  }
+}

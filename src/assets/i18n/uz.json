@@ -1,0 +1,54 @@
+{
+  "global": {
+    "cancel": "Bekor qilish",
+    "save": "Saqlash",
+    "edit": "Tahrirlash",
+    "error": "Ma'lumotni to'g'ri kiriting",
+    "delete": "Oʻchirish"
+  },
+  "navbar": {
+    "home": "Asosiy",
+    "products": "Maxsulotlar",
+    "employees": "Xodimlar",
+    "product_create": "Maxsulot yaratish",
+    "employee_create": "Xodim yaratish",
+    "logout": "Chiqib ketish"
+  },
+  "login": {
+    "error_login": "Bunday foydalanuvchi yo'q!",
+    "error_register": "Iltimos, to'g'ri ma'lumotlarni kiriting",
+    "register_login": "Hisobingiz bormi?",
+    "login_register": "Hisobingiz yoʻqmi?",
+    "phone_number": "Telefon raqam",
+    "password": "Password",
+    "login": "Login",
+    "registration": "Roʻyxatdan oʻtish",
+    "full_name": "To'liq ism"
+
+  },
+  "employee": {
+    "title": "Bizning jamoa",
+    "create": "Xodim yaratish",
+    "description": "Bizning to'liq xodimlarni ko'rish uchun bosing.",
+    "table": {
+      "firstN": "Ism",
+      "lastN": "Familiya",
+      "age": "Yosh",
+      "certificate": "Sertifikat",
+      "description": "Tavsif",
+      "image": "Rasm qo'shish"
+    }
+  },
+  "product": {
+    "title": "Bizning maxsulotlar",
+    "search": "Mahsulot nomini qidiring.",
+    "create": "Maxsulot qo'shish",
+    "description": "Bizning to'liq maxsulotlarni ko'rish uchun bosing.",
+    "table": {
+      "name": "Nomi",
+      "description": "Tavsif",
+      "price": "Narx",
+      "image": "Rasm qo'shish"
+    }
+  }
+}

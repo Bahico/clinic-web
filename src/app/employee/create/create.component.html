@@ -1,0 +1,65 @@
+<form [formGroup]="editForm" (ngSubmit)="save()">
+  <div class="modal-header">
+    <h2>{{'employee.create' | translate}}</h2>
+  </div>
+
+  <div class="modal-body">
+    <p *ngIf="error" style="color: red; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace">{{'global.error' | translate}}</p>
+    <div class="post-create">
+      <div class="form-row">
+        <div style="width: 100%">
+          <label>{{'employee.table.firstN' | translate}}</label>
+          <input nz-input nzSize="large" formControlName="first_name" style="width: 100%" />
+        </div>
+
+        <div style="width: 100%">
+          <label>{{'employee.table.lastN' | translate}}</label>
+          <input nz-input nzSize="large" formControlName="last_name" style="width: 100%" />
+        </div>
+
+        <div style="width: 100%">
+          <label>{{'employee.table.age' | translate}}</label>
+          <input nz-input nzSize="large" formControlName="age" type="number" style="width: 100%" />
+        </div>
+
+        <div style="width: 100%">
+          <label>{{'employee.table.certificate' | translate}}</label>
+          <input nz-input nzSize="large" (change)="change($event)" type="file" style="width: 100%" />
+        </div>
+
+        <div style="width: 100%">
+          <label>{{'employee.table.description' | translate}}</label>
+          <input nz-input nzSize="large" formControlName="description" style="width: 100%" />
+        </div>
+      </div>
+
+      <div class="update image">
+        <label class="upload-area">
+          <input
+            [hidden]="true"
+            id="upload"
+            accept="image/*"
+            type="file"
+            name="file"
+            style="display: none"
+            (change)="clickChange($event)"
+          />
+          <div *ngIf="!editForm.controls['image'].value" class="add">
+            <div>
+              <span nz-icon nzType="plus-circle" nzTheme="outline"></span>
+              <br>
+              <label style="color: black;">{{'employee.table.image' | translate}}</label>
+            </div>
+          </div>
+          <img [src]="sanitize(img)" *ngIf="img && !url" alt="">
+          <img [src]="img" *ngIf="img && url" alt="">
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button nz-button nzSize="large" (click)="close()">{{'global.cancel' | translate}}</button>
+    <button nz-button nzSize="large" nzType="primary">{{'global.save' | translate}}</button>
+  </div>
+</form>

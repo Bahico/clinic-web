@@ -1,0 +1,54 @@
+{
+  "global": {
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "edit": "Редактировать",
+    "error": "Введите информацию правильно",
+    "delete": "Удалить"
+  },
+  "navbar": {
+    "home": "Главный",
+    "products": "Продукты",
+    "employees": "Сотрудники",
+    "product_create": "Создание продукта",
+    "employee_create": "Сотрудник создает",
+    "logout": "Выйти"
+  },
+  "login": {
+    "error_login": "нет такого пользователя!",
+    "error_register": "Пожалуйста, введите правильную информацию",
+    "register_login": "Иметь аккаунт?",
+    "login_register": "Нет учетной записи?",
+    "phone_number": "Номер телефона",
+    "password": "Пароль",
+    "login": "Авторизоваться",
+    "registration": "Постановка на учет",
+    "full_name": "ФИО"
+
+  },
+  "employee": {
+    "title": "Наша команда",
+    "description": "",
+    "create": "Сотрудник создает",
+    "table": {
+      "firstN": "Имя",
+      "lastN": "Фамилия",
+      "age": "Возраст",
+      "certificate": "Сертификат",
+      "description": "Описание",
+      "image": "Добавить изображение"
+    }
+  },
+  "product": {
+    "title": "Наши продукты",
+    "description": "",
+    "search": "Поиск по названию продукта.",
+    "create": "Создание продукта",
+    "table": {
+      "name": "Имя",
+      "description": "Описание",
+      "price": "Цена",
+      "image": "Добавить изображение"
+    }
+  }
+}

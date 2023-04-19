@@ -1,0 +1,20 @@
+<div class="home">
+  <div class="div">
+    <h1 class="h1">Clinic<br>
+      <span style="color:rgba(35, 35, 35, 0.8)">products</span></h1>
+    <p class="banner_text">{{'home.title' | translate}}</p>
+    <div class="ant-btn-circle">
+      <button nz-button nzType="text" nzSize="large"  routerLink="/product">{{'product.title' | translate}}</button>
+      <button nz-button nzType="primary" nzSize="large" routerLink="/employee">{{'employee.title' | translate}}</button>
+    </div>
+  </div>
+  <div class="div">
+    <div class="img">
+      <img src="assets/img.png" alt="">
+    </div>
+  </div>
+</div>
+
+<product-list page="home"></product-list>
+
+<employee-list page="home"></employee-list>

@@ -1,0 +1,33 @@
+.product-detail {
+  padding: 20px;
+}
+.detail-img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(82, 81, 81, 0.75);
+}
+
+.heading-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
+  & h3, p {
+    margin: 0;
+    font-weight: bold;
+  }
+  h3 {
+    color: rgba(35, 35, 35, 0.8);
+    font-size: 22px;
+  }
+  p {
+    color: rgba(35, 35, 35, 0.8);
+    font-size: 15px;
+  }
+}
+
+.description {
+  color: rgba(35, 35, 35, 0.8);
+  font-size: 16px;
+  font-weight: normal;
+}

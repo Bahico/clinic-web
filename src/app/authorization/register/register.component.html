@@ -1,0 +1,62 @@
+<form [formGroup]="editForm" (ngSubmit)="save()" class="register" *ngIf="!confirmation">
+  <div class="form-row">
+    <div class="register-div">
+      <div>
+        <div class="image">
+          <img src="assets/logo-black.png" alt="">
+        </div>
+
+        <div class="input" *ngIf="error">
+          <label style="color: red">{{'login.error_register' | translate}}</label>
+        </div>
+
+        <div class="input">
+          <label>{{'login.full_name' | translate}}</label>
+          <input nz-input nzSize="large" placeholder="{{'login.full_name' | translate}}" formControlName="full_name">
+        </div>
+
+        <div class="input">
+          <label>{{'login.phone_number' | translate}}</label>
+          <input type="text" nzSize="large" nz-input formControlName="phone_number" placeholder="{{'login.phone_number' | translate}}"
+                 [mask]="'+000 (00) 000-00-00'"/>
+        </div>
+
+        <div class="input">
+          <label>{{'login.password' | translate}}</label>
+          <input type="password" nz-input nzSize="large" formControlName="password" placeholder="{{'login.password' | translate}}"/>
+        </div>
+
+        <div class="button">
+          <button nz-button nzType="primary">{{'login.registration' | translate}}</button>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="login">
+      <p>{{'login.register_login' | translate}} <a routerLink="../login">{{'login.login' | translate}}</a></p>
+    </div>
+  </div>
+</form>
+
+<div class="register"  *ngIf="confirmation">
+  <div class="form-row">
+    <div class="register-div">
+      <div>
+        <div class="image">
+          <img src="assets/logo-black.png" alt="">
+        </div>
+
+        <div class="confirmation">
+          <h2>Enter confirmation code</h2>
+          <input type="number" nz-input nzSize="large" [(ngModel)]="confirmationStr" [ngModelOptions]="{standalone: true}" placeholder="Confirmation code">
+          <button nz-button nzType="primary" nzSize="large" (click)="clickConfirmation()">Send</button>
+        </div>
+      </div>
+    </div>
+    <div class="login">
+      <p>Have an account? <a routerLink="../login">Login</a></p>
+    </div>
+  </div>
+</div>

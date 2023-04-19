@@ -1,0 +1,57 @@
+{
+  "global": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "error": "Enter the information correctly",
+    "delete": "Delete"
+  },
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "employees": "Employees",
+    "product_create": "Product create",
+    "employee_create": "Employee create",
+    "logout": "Logout"
+  },
+  "login": {
+    "error_login": "No such user!",
+    "error_register": "Please enter the correct information",
+    "register_login": "Have an account?",
+    "login_register": "Don't have an account?",
+    "phone_number": "Phone number",
+    "password": "Password",
+    "login": "Login",
+    "registration": "Registration",
+    "full_name": "Full name"
+
+  },
+  "employee": {
+    "title": "Our team",
+    "create": "Employee create",
+    "description": "",
+    "table": {
+      "firstN": "First name",
+      "lastN": "Last name",
+      "age": "Age",
+      "certificate": "Certificate",
+      "description": "Description",
+      "image": "Add image"
+    }
+  },
+  "product": {
+    "title": "Our products",
+    "search": "Search product name.",
+    "description": "",
+    "create": "Post create",
+    "table": {
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "image": "Add image"
+    }
+  },
+  "home": {
+    "title": "Bizning web siteda meditsina uchun maxsus asbob uskunalar topishingiz mumkin."
+  }
+}

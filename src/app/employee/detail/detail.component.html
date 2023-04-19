@@ -1,0 +1,22 @@
+<div *ngIf="user" class="employee">
+  <div class="background">
+    <div class="exit">
+      <span nz-icon (click)="clickExit()" nzType="plus" nzTheme="outline" style="color: #222223"></span>
+    </div>
+
+    <div class="image">
+      <img nz-image [nzSrc]="user.image" [alt]="user.first_name">
+      <div class="information">
+        <h3>{{user.first_name}} {{user.last_name}}</h3>
+        <label>{{'employee.table.age' | translate}}: {{user.age}}</label>
+        <p>{{user.description}}</p>
+        <a nz-button nzSize="large" nzType="primary" [href]="user.certificate" target="_blank">{{'employee.table.certificate' | translate}}</a>
+        <div style="display: flex; margin-top: 20px" *ngIf="profileService.user">
+          <button nz-button nzDanger nzType="primary" (click)="delete()" style="margin-right: 10px">{{'global.delete' | translate}}</button>
+          <button nz-button nzType="dashed" (click)="edit()">{{'global.edit' | translate}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
