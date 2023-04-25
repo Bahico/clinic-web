@@ -8,14 +8,15 @@
     <li nz-menu-item routerLink="/new" (click)="toggleClassBtn(false)">{{'navbar.new' | translate}}</li>
     <li nz-menu-item routerLink="/product" (click)="toggleClassBtn(false)">{{'navbar.products' | translate}}</li>
     <li nz-menu-item routerLink="/employee" (click)="toggleClassBtn(false)">{{'navbar.employees' | translate}}</li>
-    <li nz-menu-item (click)="clickPostCreate()" *ngIf="service.user">{{'navbar.product_create' | translate}}</li>
-    <li nz-menu-item (click)="clickEmployeeCreate()"  *ngIf="service.user">{{'navbar.employee_create' | translate}}</li>
+    <li nz-menu-item routerLink="/settings" (click)="toggleClassBtn(false)">{{'navbar.settings' | translate}}</li>
+<!--    <li nz-menu-item (click)="clickPostCreate()" *ngIf="service.user">{{'navbar.product_create' | translate}}</li>-->
+<!--    <li nz-menu-item (click)="clickEmployeeCreate()"  *ngIf="service.user">{{'navbar.employee_create' | translate}}</li>-->
 
     <li nz-submenu [nzTitle]="language === '3' ? uzb : language === '2' ? rus : eng">
       <ul>
-        <li nz-menu-item (click)="clickLanguage(3)" *nzStringTemplateOutlet="uzb"></li>
-        <li nz-menu-item (click)="clickLanguage(2)" *nzStringTemplateOutlet="rus"></li>
-        <li nz-menu-item (click)="clickLanguage(1)" *nzStringTemplateOutlet="eng"></li>
+        <li nz-menu-item *nzStringTemplateOutlet="uzb"></li>
+        <li nz-menu-item *nzStringTemplateOutlet="rus"></li>
+        <li nz-menu-item *nzStringTemplateOutlet="eng"></li>
       </ul>
     </li>
 
@@ -26,6 +27,6 @@
   <button class="menu" (click)="toggleClassBtn(true)"><span nz-icon nzType="menu" nzTheme="outline"></span></button>
 </nav>
 
-<ng-template #uzb><img src="/assets/flag/uz.svg" style="width: 50px" alt=""></ng-template>
-<ng-template #rus><img src="/assets/flag/ru.svg" style="width: 50px" alt=""></ng-template>
-<ng-template #eng><img src="/assets/flag/en.svg" style="width: 50px" alt=""></ng-template>
+<ng-template #uzb><img (click)="clickLanguage(3)" src="/assets/flag/uz.svg" style="width: 50px" alt=""></ng-template>
+<ng-template #rus><img (click)="clickLanguage(2)" src="/assets/flag/ru.svg" style="width: 50px" alt=""></ng-template>
+<ng-template #eng><img (click)="clickLanguage(1)" src="/assets/flag/en.svg" style="width: 50px" alt=""></ng-template>

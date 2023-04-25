@@ -29,13 +29,15 @@ import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NzOutletModule} from "ng-zorro-antd/core/outlet";
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    SettingsComponent
   ],
     imports: [
         BrowserModule,

@@ -13,7 +13,8 @@
     "product_create": "Maxsulot yaratish",
     "employee_create": "Xodim yaratish",
     "logout": "Chiqib ketish",
-    "new": "Yangiliklar"
+    "new": "Yangiliklar",
+    "settings": "Sozlamalar"
   },
   "login": {
     "error_login": "Bunday foydalanuvchi yo'q!",
@@ -55,5 +56,9 @@
   "new": {
     "title": "Biz xaqimizdagi yangiliklar",
     "description": "Oxirgi yangiliklarni shu site dan ko'rishingiz mumkin"
+  },
+  "settings": {
+    "title": "Site sozlamalari",
+    "description": "Bu yerdan siz site xaqida malumot olishingiz va malumot qo'shishingiz mumkin."
   }
 }
