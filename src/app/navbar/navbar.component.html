@@ -5,6 +5,7 @@
       <span nz-icon nzType="plus" (click)="toggleClassBtn(false)" nzTheme="outline" class="close"></span>
     </li>
     <li nz-menu-item routerLink="/" (click)="toggleClassBtn(false)">{{'navbar.home' | translate}}</li>
+    <li nz-menu-item routerLink="/new" (click)="toggleClassBtn(false)">{{'navbar.new' | translate}}</li>
     <li nz-menu-item routerLink="/product" (click)="toggleClassBtn(false)">{{'navbar.products' | translate}}</li>
     <li nz-menu-item routerLink="/employee" (click)="toggleClassBtn(false)">{{'navbar.employees' | translate}}</li>
     <li nz-menu-item (click)="clickPostCreate()" *ngIf="service.user">{{'navbar.product_create' | translate}}</li>

@@ -1,0 +1,22 @@
+<div class="title-container">
+  <div>
+    <h1>{{'new.title' | translate}}</h1>
+  </div>
+  <div>
+    <p routerLink="/product" class="description">{{'new.description' | translate}}</p>
+  </div>
+</div>
+
+<div class="news" infinite-scroll (scrolled)="next()">
+  <div class="container">
+    <div class="new" *ngFor="let model of data">
+      <img [src]="model.image" *ngIf="model.image" alt="">
+      <video [src]="model.video" *ngIf="model.video && !model.image"></video>
+      <div class="information">
+        <span class="title">{{model.title}}</span>
+        <p class="description">{{model.description}}</p>
+      </div>
+      <span class="create-date">{{model.create_date | date : 'dd.MM.yyyy'}}</span>
+    </div>
+  </div>
+</div>

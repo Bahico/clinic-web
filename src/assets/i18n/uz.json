@@ -12,7 +12,8 @@
     "employees": "Xodimlar",
     "product_create": "Maxsulot yaratish",
     "employee_create": "Xodim yaratish",
-    "logout": "Chiqib ketish"
+    "logout": "Chiqib ketish",
+    "new": "Yangiliklar"
   },
   "login": {
     "error_login": "Bunday foydalanuvchi yo'q!",
@@ -50,5 +51,9 @@
       "price": "Narx",
       "image": "Rasm qo'shish"
     }
+  },
+  "new": {
+    "title": "Biz xaqimizdagi yangiliklar",
+    "description": "Oxirgi yangiliklarni shu site dan ko'rishingiz mumkin"
   }
 }
