@@ -50,5 +50,21 @@
       "price": "Цена",
       "image": "Добавить изображение"
     }
+  },
+  "new": {
+    "title": "Новости о нас",
+    "description": "Вы можете увидеть последние новости с этого сайта",
+    "table": {
+      "title": "Заголовок",
+      "pdf": "PDF",
+      "video": "видео"
+    }
+  },
+  "settings": {
+    "title": "Настройки сайта",
+    "description": "Отсюда вы можете получить информацию о сайте и добавить информацию."
+  },
+  "home": {
+    "title": "Bizning web siteda meditsina uchun maxsus asbob uskunalar topishingiz mumkin."
   }
 }

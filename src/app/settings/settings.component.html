@@ -6,3 +6,24 @@
     <p>{{'settings.description' | translate}}</p>
   </div>
 </div>
+
+<div class="add">
+  <button nz-button nzType="primary" (click)="clickEmployeeCreate()">Employee add</button>
+  <button nz-button nzType="primary" (click)="clickPostCreate()">Product add</button>
+  <button nz-button nzType="primary" (click)="clickNewsCreate()">New add</button>
+  <button nz-button><span nz-icon [nzType]="'sync'" [nzSpin]="loading" (click)="refresh()"></span></button>
+</div>
+
+<div class="settings" *ngIf="about">
+  <nz-row [nzGutter]="10" style="justify-content: center; display: flex; width: 100%">
+    <nz-col [nzSpan]="6">
+      <nz-statistic [nzValue]="(about.employee | number)!" nzTitle="Employees"></nz-statistic>
+    </nz-col>
+    <nz-col [nzSpan]="6">
+      <nz-statistic [nzValue]="(about.products | number)!" nzTitle="Products"></nz-statistic>
+    </nz-col>
+    <nz-col [nzSpan]="6">
+      <nz-statistic [nzValue]="(about.news | number)!" nzTitle="News"></nz-statistic>
+    </nz-col>
+  </nz-row>
+</div>

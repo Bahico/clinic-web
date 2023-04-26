@@ -9,7 +9,7 @@
 
 <div class="news" infinite-scroll (scrolled)="next()">
   <div class="container">
-    <div class="new" *ngFor="let model of data">
+    <div class="new" *ngFor="let model of data" (click)="detail(model)">
       <img [src]="model.image" *ngIf="model.image" alt="">
       <video [src]="model.video" *ngIf="model.video && !model.image"></video>
       <div class="information">

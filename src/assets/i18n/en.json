@@ -12,7 +12,9 @@
     "employees": "Employees",
     "product_create": "Product create",
     "employee_create": "Employee create",
-    "logout": "Logout"
+    "logout": "Logout",
+    "new": "News",
+    "settings": "Settings"
   },
   "login": {
     "error_login": "No such user!",
@@ -50,6 +52,19 @@
       "price": "Price",
       "image": "Add image"
     }
+  },
+  "new": {
+    "title": "News about us",
+    "description": "You can see the latest news from this site",
+    "table": {
+      "title": "Title",
+      "pdf": "Pdf",
+      "video": "Video"
+    }
+  },
+  "settings": {
+    "title": "Site settings",
+    "description": "From here you can get information about the site and add information."
   },
   "home": {
     "title": "Bizning web siteda meditsina uchun maxsus asbob uskunalar topishingiz mumkin."

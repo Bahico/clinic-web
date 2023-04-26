@@ -7,33 +7,29 @@
     <p *ngIf="error" style="color: red; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace">{{'global.error' | translate}}</p>
     <div class="post-create">
       <div class="form-row">
+
         <div style="width: 100%">
-          <label>{{'employee.table.firstN' | translate}}</label>
-          <input nz-input nzSize="large" formControlName="first_name" style="width: 100%" />
+          <label>{{'new.table.title' | translate}}</label>
+          <input nz-input nzSize="large" formControlName="title" style="width: 100%" />
         </div>
 
         <div style="width: 100%">
-          <label>{{'employee.table.lastN' | translate}}</label>
-          <input nz-input nzSize="large" formControlName="last_name" style="width: 100%" />
-        </div>
-
-        <div style="width: 100%">
-          <label>{{'employee.table.age' | translate}}</label>
-          <input nz-input nzSize="large" formControlName="age" type="number" style="width: 100%" />
-        </div>
-
-        <div style="width: 100%">
-          <label>{{'employee.table.certificate' | translate}}</label>
-          <input nz-input nzSize="large" (change)="change($event)" type="file" style="width: 100%" />
+          <label>{{'new.table.pdf' | translate}}</label>
+          <input nz-input nzSize="large" (change)="change($event, 'pdf')" type="file" style="width: 100%" />
         </div>
 
         <div style="width: 100%">
           <label>{{'employee.table.description' | translate}}</label>
           <textarea nz-input nzSize="large" formControlName="description" style="width: 100%" ></textarea>
         </div>
+
+        <div style="width: 100%" *ngIf="!newModel || newModel && !newModel.image">
+          <label>{{'new.table.video' | translate}}</label>
+          <input nz-input nzSize="large" formControlName="video" type="file" (change)="change($event, 'video')" style="width: 100%" />
+        </div>
       </div>
 
-      <div class="update image">
+      <div class="update image" *ngIf="!newModel || newModel && !newModel.video">
         <label class="upload-area">
           <input
             [hidden]="true"

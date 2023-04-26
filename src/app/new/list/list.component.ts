@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {NewService} from "../service/service.service";
 import {NewModel} from "../new.model";
+import {NzModalService} from "ng-zorro-antd/modal";
+import {NewDetailComponent} from "../detail/detail.component";
 
 @Component({
   selector: 'new-list',
@@ -10,7 +12,8 @@ import {NewModel} from "../new.model";
 export class NewListComponent {
   data: NewModel[] = [];
   constructor(
-    private readonly service: NewService
+    private readonly service: NewService,
+    private readonly nzModal: NzModalService
   ) {
     service.all().subscribe(data=>{
       this.data = data.results;
@@ -25,4 +28,14 @@ export class NewListComponent {
     })
   }
 
+  detail(newModel: NewModel) {
+    this.nzModal.create({
+      nzContent: NewDetailComponent,
+      nzComponentParams: {
+        newModel: newModel
+      },
+      nzFooter: null,
+      nzWidth: '600px'
+    })
+  }
 }

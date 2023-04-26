@@ -1,0 +1,20 @@
+<div *ngIf="newModel" class="detail">
+  <div class="container">
+    <div class="image">
+      <img nz-image [nzSrc]="newModel.image" *ngIf="newModel.image" alt="">
+      <video *ngIf="!newModel.image && newModel.video">
+        <source [src]="newModel.video" type="video/mp4">
+      </video>
+
+      <div class="buttons">
+        <a nz-button nzType="primary" [href]="newModel.pdf" *ngIf="newModel.pdf" target="_blank">{{'new.table.pdf' | translate}}</a>
+        <button nz-button nzType="primary" *ngIf="profileService.user" (click)="edit()">Edit</button>
+      </div>
+    </div>
+
+    <h1>{{newModel.title}}</h1>
+    <p class="description">{{newModel.description}}</p>
+
+    <span class="create-date">{{newModel.create_date | date : 'dd.MM.yyyy'}}</span>
+  </div>
+</div>

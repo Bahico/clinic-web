@@ -55,10 +55,18 @@
   },
   "new": {
     "title": "Biz xaqimizdagi yangiliklar",
-    "description": "Oxirgi yangiliklarni shu site dan ko'rishingiz mumkin"
+    "description": "Oxirgi yangiliklarni shu site dan ko'rishingiz mumkin",
+    "table": {
+      "title": "Sarlavha",
+      "pdf": "Pdf",
+      "video": "Video"
+    }
   },
   "settings": {
     "title": "Site sozlamalari",
     "description": "Bu yerdan siz site xaqida malumot olishingiz va malumot qo'shishingiz mumkin."
+  },
+  "home": {
+    "title": "Bizning web siteda meditsina uchun maxsus asbob uskunalar topishingiz mumkin."
   }
 }

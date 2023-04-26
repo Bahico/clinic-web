@@ -38,7 +38,7 @@ export class PostCreateComponent implements OnInit {
   ngOnInit(): void {
     if (this.product) {
       this.editForm.patchValue({...this.product})
-      this.url = true
+      this.url = true;
       this.img = this.product.image
     }
   }
@@ -55,7 +55,7 @@ export class PostCreateComponent implements OnInit {
           // @ts-ignore
           const index = this.service.data.indexOf(this.product)
           data.image = this.imgUrl+data.image;
-          this.service.data[index] = data
+          this.service.data[index] = data;
         }
         this.activeModal.closeAll()
       }, () => {
