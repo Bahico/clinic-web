@@ -33,6 +33,7 @@ import { SettingsComponent } from './settings/settings.component';
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzStatisticModule} from "ng-zorro-antd/statistic";
 import { RequestHandlerInterceptor } from './core/request-handler.interpretator';
+import {AboutListComponent} from "./about/list/list.component";
 
 @NgModule({
   declarations: [
@@ -42,33 +43,34 @@ import { RequestHandlerInterceptor } from './core/request-handler.interpretator'
     FooterComponent,
     SettingsComponent
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    NzLayoutModule,
-    NzMenuModule,
-    PostCreateModule,
-    NzModalModule,
-    HttpClientModule,
-    EmployeeCreateModule,
-    NzButtonModule,
-    NzIconModule,
-    NzIconModule.forChild([AimOutline, PhoneOutline, PlusCircleOutline, MailOutline, PlusOutline, MenuOutline]),
-    ProductModule,
-    EmployeeModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    NzOutletModule,
-    NzFormModule,
-    NzStatisticModule,
-  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        NzLayoutModule,
+        NzMenuModule,
+        PostCreateModule,
+        NzModalModule,
+        HttpClientModule,
+        EmployeeCreateModule,
+        NzButtonModule,
+        NzIconModule,
+        NzIconModule.forChild([AimOutline, PhoneOutline, PlusCircleOutline, MailOutline, PlusOutline, MenuOutline]),
+        ProductModule,
+        EmployeeModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        NzOutletModule,
+        NzFormModule,
+        NzStatisticModule,
+        AboutListComponent,
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

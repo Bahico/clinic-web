@@ -5,6 +5,7 @@ import {PostCreateComponent} from "../product/create/create.component";
 import {EmployeeCreateComponent} from "../employee/create/create.component";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {NewCreateComponent} from "../new/create/create.component";
+import {AboutCreate} from "../about/create/create.component";
 
 @Component({
   selector: 'app-settings',
@@ -50,6 +51,14 @@ export class SettingsComponent {
   clickNewsCreate() {
     this.modal.create({
       nzContent: NewCreateComponent,
+      nzFooter: null,
+      nzTitle: '',
+      nzWidth: '600px'
+    });
+  }
+  clickPartnerCreate() {
+    this.modal.create({
+      nzContent: AboutCreate,
       nzFooter: null,
       nzTitle: '',
       nzWidth: '600px'

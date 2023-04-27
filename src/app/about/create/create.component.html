@@ -1,0 +1,18 @@
+<div class="create">
+  <div style="display:flex; justify-content: center; text-align: center;">
+    <div style="margin-right: 15px">
+      <button nz-button nzType="dashed" (click)="imageUpload.click()">Image upload</button>
+      <p *ngIf="image">{{image.name}}</p>
+      <input type="file" accept="image/*" style="display:none;" #imageUpload (change)="change($event, 'image')">
+    </div>
+    <div>
+      <button nz-button nzType="dashed" (click)="pdfUpload.click()">PDF upload</button>
+      <p *ngIf="pdf">{{pdf.name}}</p>
+      <input type="file" accept="application/pdf" style="display: none" #pdfUpload (change)="change($event, 'pdf')">
+    </div>
+  </div>
+
+  <div class="save">
+    <button nz-button nzType="primary" (click)="save()">Save</button>
+  </div>
+</div>

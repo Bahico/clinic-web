@@ -1,3 +1,7 @@
+:host {
+  width: 100%;
+}
+
 .detail {
   width: 100%;
   display: flex;
@@ -27,6 +31,9 @@
         margin-right: 3px;
         margin-left: 3px;
       }
+    }
+    .video-buttons {
+      top: 10px;
     }
   }
   h1 {

@@ -79,6 +79,7 @@ export class NewCreateComponent implements OnInit {
     });
   }
   change(event: any, name: string) {
+    console.log(event.target.files[0])
     if (name === 'video')
       this.editForm.patchValue({video: event.target.files[0]})
     else

@@ -4,7 +4,7 @@ import {ProductModel} from "../product.model";
 import {debounceTime, distinctUntilChanged, fromEvent, map} from 'rxjs';
 import {NzModalService} from "ng-zorro-antd/modal";
 import {PostCreateComponent} from "../create/create.component";
-import {Route, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'product-list',
@@ -28,7 +28,6 @@ export class ListComponent implements OnInit, AfterViewInit {
       this.service.data = data.results
       this.service.next = data.next
     })
-    console.log(this.page)
   }
   ngAfterViewInit() {
     setTimeout(() => {

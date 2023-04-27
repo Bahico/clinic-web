@@ -2,11 +2,11 @@
   <div class="container">
     <div class="image">
       <img nz-image [nzSrc]="newModel.image" *ngIf="newModel.image" alt="">
-      <video *ngIf="!newModel.image && newModel.video">
-        <source [src]="newModel.video" type="video/mp4">
+      <video *ngIf="!newModel.image && newModel.video" controls>
+        <source [src]="newModel.video">
       </video>
 
-      <div class="buttons">
+      <div class="buttons" [ngClass]="{'video-buttons': !newModel.image && newModel.video}">
         <a nz-button nzType="primary" [href]="newModel.pdf" *ngIf="newModel.pdf" target="_blank">{{'new.table.pdf' | translate}}</a>
         <button nz-button nzType="primary" *ngIf="profileService.user" (click)="edit()">Edit</button>
       </div>
