@@ -15,7 +15,7 @@
 
         <div style="width: 100%">
           <label>{{'new.table.pdf' | translate}}</label>
-          <input nz-input nzSize="large" (change)="change($event, 'pdf')" type="file" style="width: 100%" />
+          <input nz-input nzSize="large" (change)="change($event, 'pdf')" accept="application/pdf" type="file" style="width: 100%" />
         </div>
 
         <div style="width: 100%">
@@ -25,7 +25,7 @@
 
         <div style="width: 100%" *ngIf="!newModel || newModel && !newModel.image">
           <label>{{'new.table.video' | translate}}</label>
-          <input nz-input nzSize="large" formControlName="video" type="file" (change)="change($event, 'video')" style="width: 100%" />
+          <input nz-input nzSize="large" formControlName="video" accept="video/*" type="file" (change)="change($event, 'video')" style="width: 100%" />
         </div>
       </div>
 
