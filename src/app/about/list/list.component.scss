@@ -12,8 +12,8 @@
   }
   .partners {
     display: flex;
-    overflow-y: auto;
-    max-width: 60vw;
+    width: 60vw;
+    height: 100px;
     .partner {
       width: 200px;
       height: 100px;

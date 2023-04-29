@@ -2,12 +2,14 @@
   <div style="text-align: center">
     <h1>Partners</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias fuga fugit ipsam numquam quidem quis?</p>
-    <div class="partners">
-      <div class="partner" *ngFor="let model of data">
-        <a [href]="url+model.pdf">
-          <img [src]="url+model.image"  alt="">
-          <button nz-button nzType="primary" nzDanger *ngIf="profileService.user">Delete</button>
-        </a>
+    <div style="width: 60vw; overflow-x: auto">
+      <div class="partners">
+        <div class="partner" *ngFor="let model of data">
+          <a [href]="url+model.pdf">
+            <img [src]="url+model.image"  alt="">
+            <button nz-button nzType="primary" nzDanger *ngIf="profileService.user">Delete</button>
+          </a>
+        </div>
       </div>
     </div>
   </div>
