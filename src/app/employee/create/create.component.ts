@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {DomSanitizer} from "@angular/platform-browser";
 import {NzModalService} from "ng-zorro-antd/modal";
@@ -7,12 +7,14 @@ import {NgxPhotoEditorService} from "ngx-photo-editor";
 import {EmployeeModel} from "../employee.model";
 
 @Component({
-  selector: 'app-create',
+  selector: 'employee-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
-  inputs: ['employee']
+  inputs: ['employee'],
+  outputs: ['editedEmployee']
 })
 export class EmployeeCreateComponent implements OnInit {
+  editedEmployee = new EventEmitter<EmployeeModel>()
   employee?: EmployeeModel;
   editForm = this.fb.group({
     first_name: [null, [Validators.maxLength(40), Validators.minLength(5), Validators.required]],
@@ -50,14 +52,14 @@ export class EmployeeCreateComponent implements OnInit {
       updateForm.append('certificate', this.editForm.value.certificate)
       updateForm.append('age', this.editForm.value.age)
       this.service.create(updateForm).subscribe(data => {
-        if (this.service.data.length !== 3)
-          this.service.data.push(data)
+        this.editedEmployee.emit(data)
         this.activeModal.closeAll()
       }, () => {
         this.error = true
       })
     } else {
-      this.service.update(this.editForm.value, this.employee.id).subscribe(()=>{
+      this.service.update(this.editForm.value, this.employee.id).subscribe(data=>{
+        this.editedEmployee.emit(data)
         this.activeModal.closeAll()
       }, () => {
         this.error = true

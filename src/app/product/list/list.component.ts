@@ -2,9 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {ProductService} from "../product.service";
 import {ProductModel} from "../product.model";
 import {debounceTime, distinctUntilChanged, fromEvent, map} from 'rxjs';
-import {NzModalService} from "ng-zorro-antd/modal";
-import {PostCreateComponent} from "../create/create.component";
-import {Router} from "@angular/router";
+import {url} from "../../app.component";
 
 @Component({
   selector: 'product-list',
@@ -13,19 +11,21 @@ import {Router} from "@angular/router";
   inputs: ['page']
 })
 export class ListComponent implements OnInit, AfterViewInit {
+
   page = '';
   visible = false;
-  id?: ProductModel;
+  product?: ProductModel;
+  edit = false;
   @ViewChild('input1') input?: ElementRef;
+  data: ProductModel[] = [];
+
   constructor(
     public readonly service: ProductService,
-    private readonly activateModal: NzModalService,
-    private readonly route:Router
   ) { }
 
   ngOnInit(): void {
     this.service.list().subscribe(data=>{
-      this.service.data = data.results
+      this.data = data.results
       this.service.next = data.next
     })
   }
@@ -39,38 +39,41 @@ export class ListComponent implements OnInit, AfterViewInit {
         , distinctUntilChanged()
       ).subscribe((text: string) => {
         this.service.list().subscribe(data=>{
-          this.service.data = data.results
+          this.data = data.results
           this.service.next = data.next
         })
       });
     }, 1000)
   }
 
+  delete() {
+    if (this.product) {
+      const index = this.data.indexOf(this.product)
+      this.data.splice(index, 1);
+      this.product = undefined;
+      this.visible = false;
+    }
+  }
+
   onScrolled() {
     this.service.scroll().subscribe(data => {
-      this.service.data.push(...data.results)
+      this.data.push(...data.results)
       this.service.next = data.next
     })
   }
   clickCancel(id?: ProductModel) {
-    this.id = id
+    this.product = id
     this.visible = !this.visible
   }
 
-  clickEdit(event: any) {
-    if (event !== false) {
-      this.activateModal.create({
-        nzContent: PostCreateComponent,
-        nzComponentParams: {product: event},
-        nzFooter: null
-      })
-    } else {
-      this.id = undefined
+  editProduct(event: ProductModel) {
+    if (this.product) {
+      const index = this.data.indexOf(this.product);
+      event.image = url+event.image;
+      this.data[index] = event;
+      this.visible = false;
+      this.product = undefined;
+      this.edit = false;
     }
-  }
-
-  clickDescription() {
-    console.log('eeee')
-    this.route.navigate(['employee/']).then()
   }
 }

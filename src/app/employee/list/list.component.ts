@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmployeeModel} from "../employee.model";
 import {EmployeeService} from "../employee.service";
-import {NzModalService} from "ng-zorro-antd/modal";
-import {EmployeeCreateComponent} from "../create/create.component";
+import {url} from "../../app.component";
 
 @Component({
   selector: 'employee-list',
@@ -13,20 +12,22 @@ import {EmployeeCreateComponent} from "../create/create.component";
 export class ListComponent implements OnInit {
   page = '';
   employee?: EmployeeModel;
+  edit = false;
+  data: EmployeeModel[] = [];
+
   constructor(
     public readonly service: EmployeeService,
-    private readonly activateModal: NzModalService
   ) { }
 
   ngOnInit(): void {
     if (this.page === 'home') {
       this.service.home().subscribe(data=>{
-        this.service.data = data.results
+        this.data = data.results
         this.service.next = data.next
       })
     } else {
       this.service.list().subscribe(data=>{
-        this.service.data = data.results
+        this.data = data.results
         this.service.next = data.next
       })
     }
@@ -39,21 +40,35 @@ export class ListComponent implements OnInit {
   onScrolled() {
     if (this.page !== 'home') {
       this.service.scroll().subscribe(data => {
-        this.service.data.push(...data.results)
-        this.service.next = data.next
+        this.data.push(...data.results)
+        this.service.next = data.next;
       })
     }
   }
 
-  clickEdit(event: any) {
-    if (event !== false) {
-      this.activateModal.create({
-        nzContent: EmployeeCreateComponent,
-        nzComponentParams: {employee:event},
-        nzFooter: null
-      })
-    } else {
-      this.employee = undefined
+  closeDetail() {
+    this.employee = undefined;
+  }
+
+  clickEdit() {
+    this.edit = true;
+  }
+
+  editEmployee(employee: EmployeeModel) {
+    if (this.employee) {
+      const index = this.data.indexOf(this.employee)
+      employee.image = url+employee.image;
+      employee.certificate = url+employee.certificate;
+      this.data[index] = employee;
+      this.employee = employee
+    }
+  }
+
+  delete() {
+    if (this.employee) {
+      const index = this.data.indexOf(this.employee)
+      this.data.splice(index, 1);
+      this.employee = undefined;
     }
   }
 }

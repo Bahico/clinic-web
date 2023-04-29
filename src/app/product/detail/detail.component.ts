@@ -10,12 +10,15 @@ import {AuthorizationService} from "../../authorization/authorization.service";
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
   inputs: ['product'],
-  outputs: ['active']
+  outputs: ['edit', 'delete', 'close']
 })
 export class DetailComponent implements OnInit {
   product?: ProductModel;
   img = img;
-  active = new EventEmitter<any>(true);
+  edit = new EventEmitter();
+  delete = new EventEmitter();
+  close = new EventEmitter();
+
   constructor(
     private readonly activaRoute: ActivatedRoute,
     private readonly service: ProductService,
@@ -24,17 +27,17 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  delete() {
-    this.service.delete(this.product?.id).subscribe(data=>{
-      if (this.product) {
-        const index = this.service.data.indexOf(this.product)
-        this.service.data.splice(index, 1)
-      }
-      this.active.emit(false)
+  deleteFunc() {
+    this.service.delete(this.product?.id).subscribe(()=>{
+      this.delete.emit()
     })
   }
 
-  edit() {
-    this.active.emit(this.product)
+  editFunc() {
+    this.edit.emit()
+  }
+
+  closeFunc() {
+    this.close.emit()
   }
 }

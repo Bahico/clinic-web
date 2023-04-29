@@ -1,5 +1,12 @@
 .product-detail {
   padding: 20px;
+  position: relative;
+  .close {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    font-size: 18px;
+  }
 }
 .detail-img {
   width: 100%;

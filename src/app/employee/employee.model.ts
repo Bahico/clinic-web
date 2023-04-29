@@ -4,7 +4,7 @@ export interface EmployeeModel {
   last_name: string;
   age: number;
   image: string;
-  certificate: Blob;
+  certificate: string;
   description: string;
 }
 
