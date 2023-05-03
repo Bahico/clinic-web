@@ -10,7 +10,6 @@ export class ProductService {
   private postUrl = url+'product/';
   public next: string | null = '';
   public name = '';
-  data: ProductModel[] = []
 
   constructor(
     private readonly http: HttpClient

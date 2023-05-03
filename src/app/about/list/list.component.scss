@@ -12,23 +12,23 @@
   }
   .partners {
     display: flex;
-    width: 60vw;
     height: 100px;
+    justify-content: center;
     .partner {
       width: 200px;
       height: 100px;
       margin: 0 10px;
+      position: relative;
       a {
-        position: relative;
         height: 100%;
         width: 100%;
         display: block;
-        button {
-          position: absolute;
-          bottom: 3px;
-          right: 5px;
-          border-radius: .3rem;
-        }
+      }
+      button {
+        position: absolute;
+        bottom: 3px;
+        right: 5px;
+        border-radius: .3rem;
       }
       img {
         width: 100%;

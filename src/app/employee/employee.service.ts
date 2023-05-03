@@ -8,7 +8,6 @@ import {EmployeeHttp, EmployeeModel} from "./employee.model";
   providedIn: 'root'
 })
 export class EmployeeService {
-  data: EmployeeModel[] = []
 
   private postUrl = url+'employee/';
   public next: string | undefined = ''

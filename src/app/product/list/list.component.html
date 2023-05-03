@@ -14,7 +14,7 @@
 
 <div class="product-list" infinite-scroll (scrolled)="onScrolled()" *ngIf="page === ''">
   <div class="container">
-    <div class="product" *ngFor="let product of service.data" (click)="clickCancel(product)">
+    <div class="product" *ngFor="let product of data" (click)="clickCancel(product)">
       <img [src]="product.image" [alt]="product.name">
       <div class="name">
         <p>{{product.name}}</p>
@@ -26,7 +26,7 @@
 
 <div class="product-list home" *ngIf="page === 'home'">
   <div class="container">
-    <div class="product" *ngFor="let product of service.data" (click)="clickCancel(product)">
+    <div class="product" *ngFor="let product of data" (click)="clickCancel(product)">
       <img [src]="product.image" [alt]="product.name">
       <div class="name">
         <p>{{product.name}}</p>
@@ -42,6 +42,10 @@
   (nzOnClose)="clickCancel()"
 >
   <ng-container *nzDrawerContent>
-    <app-detail [product]="id" (active)="clickEdit($event)"></app-detail>
+    <app-detail [product]="product" (delete)="delete()" (close)="visible = false; product = undefined;" (edit)="this.edit = true"></app-detail>
   </ng-container>
 </nz-drawer>
+
+<nz-modal [nzVisible]="edit" (nzOnCancel)="edit = false" [nzFooter]="null">
+  <product-create [product]="product" (editedProduct)="editProduct($event)" *nzModalContent></product-create>
+</nz-modal>

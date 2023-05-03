@@ -47,9 +47,9 @@ export class NewCreateComponent implements OnInit {
     const formData: any = new FormData()
     formData.append('title', this.editForm.value.title)
     formData.append('description', this.editForm.value.description)
-    this.editForm.value.image ? formData.append('image', this.editForm.value.image) : undefined
-    this.editForm.value.video ? formData.append('video', this.editForm.value.video) : undefined
-    this.editForm.value.pdf ? formData.append('pdf', this.editForm.value.pdf) : undefined
+    this.editForm.value.image ? formData.append('image', this.editForm.value.image) : undefined;
+    this.editForm.value.video ? formData.append('video', this.editForm.value.video) : undefined;
+    this.editForm.value.pdf ? formData.append('pdf', this.editForm.value.pdf) : undefined;
     if (this.newModel) {
       this.service.update(formData, this.newModel.id).subscribe(data=>{
         this.activeModal.closeAll()
@@ -79,7 +79,6 @@ export class NewCreateComponent implements OnInit {
     });
   }
   change(event: any, name: string) {
-    console.log(event.target.files[0])
     if (name === 'video')
       this.editForm.patchValue({video: event.target.files[0]})
     else

@@ -9,11 +9,13 @@ import {AuthorizationService} from "../../authorization/authorization.service";
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
   inputs: ['user'],
-  outputs: ['active']
+  outputs: ['close', 'edit', 'delete'],
 })
 export class DetailComponent implements OnInit {
   user?: EmployeeModel;
-  active = new EventEmitter<any>()
+  delete = new EventEmitter()
+  edit = new EventEmitter();
+  close = new EventEmitter()
   constructor(
     private readonly service: EmployeeService,
     public readonly profileService: AuthorizationService
@@ -23,20 +25,16 @@ export class DetailComponent implements OnInit {
   }
 
   clickExit() {
-    this.active.emit(false)
+    this.close.emit(false);
   }
 
-  delete() {
+  deleteFunc() {
     if (this.user)
-    this.service.delete(this.user?.id).subscribe(data=>{
-      if (this.user) {
-        const index = this.service.data.indexOf(this.user)
-        this.service.data.splice(index, 1)
-      }
-      this.active.emit(false)
+    this.service.delete(this.user?.id).subscribe(()=>{
+      this.delete.emit()
     })
   }
-  edit() {
-    this.active.emit(this.user)
+  editFunc() {
+    this.edit.emit(this.user)
   }
 }

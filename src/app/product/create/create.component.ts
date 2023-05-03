@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {UntypedFormBuilder, Validators} from "@angular/forms";
 import { DomSanitizer } from '@angular/platform-browser';
 import {NzModalService} from "ng-zorro-antd/modal";
@@ -8,13 +8,15 @@ import {ProductModel} from "../product.model";
 import { img } from 'src/app/app.component';
 
 @Component({
-  selector: 'app-create',
+  selector: 'product-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
-  inputs: ['product']
+  inputs: ['product'],
+  outputs: ['editedProduct']
 })
 export class PostCreateComponent implements OnInit {
   product?: ProductModel;
+  editedProduct = new EventEmitter<ProductModel>()
   editForm = this.fb.group({
     id: [null, Validators.required],
     name: ['', [Validators.maxLength(300), Validators.minLength(10), Validators.required]],
@@ -51,17 +53,11 @@ export class PostCreateComponent implements OnInit {
       updateForm.append('image', this.editForm.value.image)
       updateForm.append('price', this.editForm.value.price)
       this.service.update(updateForm, this.product.id).subscribe(data=>{
-        if (this.service.data.length !== 3) {
-          // @ts-ignore
-          const index = this.service.data.indexOf(this.product)
-          data.image = this.imgUrl+data.image;
-          this.service.data[index] = data;
-        }
+        this.editedProduct.emit(data);
         this.activeModal.closeAll()
       }, () => {
         this.error = true
       })
-
     } else {
       const updateForm = new FormData()
       updateForm.append('name', this.editForm.value.name)
@@ -69,10 +65,6 @@ export class PostCreateComponent implements OnInit {
       updateForm.append('image', this.editForm.value.image)
       updateForm.append('price', this.editForm.value.price)
       this.service.create(updateForm).subscribe(data => {
-        if (this.service.data.length !== 3) {
-          data.image = this.imgUrl+data.image;
-          this.service.data.push(data)
-        }
         this.activeModal.closeAll()
       }, () => {
         this.error = true

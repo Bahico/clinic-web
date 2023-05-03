@@ -1,11 +1,13 @@
 .news {
   display: flex;
   justify-content: center;
-  padding-left: 10vh;
-  padding-right: 10vh;
+  padding-left: 10vw;
+  padding-right: 10vw;
   .container {
     display: flex;
     flex-wrap: wrap;
+    margin-right: 10vw;
+    margin-left: 10vw;
     .new {
       width: calc(25% - 20px);
       margin: 20px 10px;
@@ -50,6 +52,37 @@
     }
     .new:hover {
       box-shadow: 0 0 10px rgb(206 238 239);
+    }
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  .news {
+    .container {
+      .new {
+        width: calc((100% / 3) - 20px);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 599px) {
+  .news {
+    .container {
+      .new {
+        width: calc((100% / 2) - 20px);
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 399px) {
+  .news {
+    .container {
+      .new {
+        width: calc(100% - 20px);
+      }
     }
   }
 }

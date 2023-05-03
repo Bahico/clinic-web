@@ -19,6 +19,9 @@ export class AboutService {
   detail(id: number) {
     return this.http.get<PartnerModel>(this.resourceUrl+id+'/')
   }
+  delete(id: number) {
+    return this.http.delete(this.resourceUrl+id+'/')
+  }
   create(data: any) {
     return this.http.post<PartnerModel>(this.resourceUrl+'create/', data)
   }
