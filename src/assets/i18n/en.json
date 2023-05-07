@@ -47,6 +47,7 @@
     "description": "",
     "create": "Post create",
     "table": {
+      "pdf": "PDF",
       "name": "Name",
       "description": "Description",
       "price": "Price",

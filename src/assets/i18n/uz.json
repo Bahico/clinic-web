@@ -48,6 +48,7 @@
     "description": "Bizning to'liq maxsulotlarni ko'rish uchun bosing.",
     "table": {
       "name": "Nomi",
+      "pdf": "PDF",
       "description": "Tavsif",
       "price": "Narx",
       "image": "Rasm qo'shish"

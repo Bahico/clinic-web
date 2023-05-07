@@ -18,6 +18,11 @@
         </div>
 
         <div style="width: 100%">
+          <label>{{'product.table.pdf' | translate}}</label>
+          <input nz-input nzSize="large" type="file" accept="application/pdf" (change)="changePdf($event)" style="width: 100%" />
+        </div>
+
+        <div style="width: 100%">
           <label>{{'product.table.price' | translate}}</label>
           <input nz-input nzSize="large" type="number" formControlName="price" style="width: 100%" />
         </div>

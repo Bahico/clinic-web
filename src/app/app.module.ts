@@ -34,6 +34,8 @@ import {NzFormModule} from "ng-zorro-antd/form";
 import {NzStatisticModule} from "ng-zorro-antd/statistic";
 import { RequestHandlerInterceptor } from './core/request-handler.interpretator';
 import {AboutListComponent} from "./about/list/list.component";
+import {AngularYandexMapsModule} from "angular8-yandex-maps";
+import { LocationComponent } from './settings/location/location.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import {AboutListComponent} from "./about/list/list.component";
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    SettingsComponent
+    SettingsComponent,
+    LocationComponent
   ],
     imports: [
         BrowserModule,
@@ -70,6 +73,7 @@ import {AboutListComponent} from "./about/list/list.component";
         NzFormModule,
         NzStatisticModule,
         AboutListComponent,
+        AngularYandexMapsModule,
     ],
   providers: [
     {

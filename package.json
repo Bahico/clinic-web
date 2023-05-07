@@ -21,6 +21,7 @@
     "@angular/router": "^14.2.0",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
+    "angular8-yandex-maps": "^14.0.4",
     "express": "^4.18.2",
     "ng-zorro-antd": "^14.3.0",
     "ngx-infinite-scroll": "^14.0.0",

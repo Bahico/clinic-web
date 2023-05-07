@@ -5,8 +5,8 @@
     <div style="width: 60vw; overflow-x: auto; display: flex; justify-content: center;">
       <div class="partners" #partners>
         <div class="partner" *ngFor="let model of data">
-          <a [href]="url+model.pdf">
-            <img [src]="url+model.image"  alt="">
+          <a [href]="img+model.pdf">
+            <img [src]="img+model.image"  alt="">
           </a>
           <button nz-button nzType="primary" nzDanger *ngIf="profileService.user" type="submit" (click)="delete(model.id)">Delete</button>
         </div>

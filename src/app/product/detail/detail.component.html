@@ -9,6 +9,9 @@
       <h3>{{product.name}}</h3>
       <p>{{'product.table.price' | translate}}: {{product.price}} so'm</p>
     </div>
+    <div class="pdf" style="margin: 4px">
+      <button nz-button nzType="primary" [routerLink]=""><a [href]="product.pdf" target="_blank">PDF</a></button>
+    </div>
     <div class="crud" *ngIf="profileService.user">
       <button nz-button nzType="primary" (click)="deleteFunc()" nzDanger style="margin-right: 15px">{{'global.delete' | translate}}</button>
       <button nz-button nzType="dashed" (click)="editFunc()">{{'global.edit' | translate}}</button>

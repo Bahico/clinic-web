@@ -6,6 +6,7 @@ import {EmployeeCreateComponent} from "../employee/create/create.component";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {NewCreateComponent} from "../new/create/create.component";
 import {AboutCreate} from "../about/create/create.component";
+import {LocationComponent} from "./location/location.component";
 
 @Component({
   selector: 'app-settings',
@@ -30,6 +31,15 @@ export class SettingsComponent {
       this.about = data;
       this.loading = false;
     })
+  }
+
+  clickLocationEdit() {
+    this.modal.create({
+      nzContent: LocationComponent,
+      nzFooter: null,
+      nzTitle: '',
+      nzWidth: '600px'
+    });
   }
 
   clickPostCreate() {
