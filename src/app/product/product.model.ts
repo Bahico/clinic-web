@@ -4,6 +4,7 @@ export interface ProductModel {
   description: string;
   image: string;
   price: number;
+  pdf: string;
 }
 
 export type NewPostModel = Omit<ProductModel, 'id'> & { id: null };

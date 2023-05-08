@@ -19,6 +19,12 @@
         <div class="map_icon"><span nz-icon nzType="phone" nzTheme="outline"></span><span class="paddlin_left_0">+998972154770</span></div>
         <div class="map_icon"><span nz-icon nzType="phone" nzTheme="outline"></span><span class="paddlin_left_0">+998995175599</span></div>
         <div class="map_icon"><span nz-icon nzType="mail" nzTheme="outline"></span><span class="paddlin_left_0">doctorshokhislam@gmail.com</span></div>
+
+        <div style="width: calc(100% - 5px); height: 20vh" *ngIf="longitude && latitude">
+          <ya-map [center]="[longitude, latitude]" [zoom]="12">
+            <ya-placemark [geometry]="[longitude, latitude]"></ya-placemark>
+          </ya-map>
+        </div>
       </div>
     </div>
   </div>

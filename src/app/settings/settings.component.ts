@@ -45,6 +45,15 @@ export class SettingsComponent {
     })
   }
 
+  clickLocationEdit() {
+    this.modal.create({
+      nzContent: LocationComponent,
+      nzFooter: null,
+      nzTitle: '',
+      nzWidth: '600px'
+    });
+  }
+
   clickPostCreate() {
     this.modal.create({
       nzContent: PostCreateComponent,
@@ -78,6 +87,4 @@ export class SettingsComponent {
       nzWidth: '600px'
     });
   }
-
-  protected readonly event = event;
 }

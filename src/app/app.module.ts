@@ -34,6 +34,8 @@ import {NzFormModule} from "ng-zorro-antd/form";
 import {NzStatisticModule} from "ng-zorro-antd/statistic";
 import { RequestHandlerInterceptor } from './core/request-handler.interpretator';
 import {AboutListComponent} from "./about/list/list.component";
+import {AngularYandexMapsModule} from "angular8-yandex-maps";
+import { LocationComponent } from './settings/location/location.component';
 import { VideoComponent } from './video/video.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
@@ -43,6 +45,8 @@ import { NzMessageService } from 'ng-zorro-antd/message';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
+    SettingsComponent,
+    LocationComponent,
     SettingsComponent,
     VideoComponent
   ],
@@ -73,6 +77,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
         NzFormModule,
         NzStatisticModule,
         AboutListComponent,
+        AngularYandexMapsModule,
     ],
   providers: [
     NzMessageService,
