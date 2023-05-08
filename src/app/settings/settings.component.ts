@@ -6,6 +6,8 @@ import {EmployeeCreateComponent} from "../employee/create/create.component";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {NewCreateComponent} from "../new/create/create.component";
 import {AboutCreate} from "../about/create/create.component";
+import {VideoService} from "../video/video.service";
+import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-settings',
@@ -17,7 +19,9 @@ export class SettingsComponent {
   loading = false;
   constructor(
     protected servie: SettingsService,
-    private readonly modal: NzModalService
+    private readonly modal: NzModalService,
+    private readonly videoService: VideoService,
+    private readonly nzMessage: NzMessageService
   ) {
     servie.get().subscribe(data=>{
       this.about = data
@@ -32,6 +36,15 @@ export class SettingsComponent {
     })
   }
 
+  videoCreate(event: any) {
+    console.log(true)
+    const formData = new FormData()
+    formData.append('video', event.target.files[0])
+    this.videoService.create(formData).subscribe(data=>{
+      this.nzMessage.success('Video muovafaqiyatli yaratildi!')
+    })
+  }
+
   clickPostCreate() {
     this.modal.create({
       nzContent: PostCreateComponent,
@@ -40,6 +53,7 @@ export class SettingsComponent {
       nzWidth: '600px'
     });
   }
+
   clickEmployeeCreate() {
     this.modal.create({
       nzContent: EmployeeCreateComponent,
@@ -64,4 +78,6 @@ export class SettingsComponent {
       nzWidth: '600px'
     });
   }
+
+  protected readonly event = event;
 }

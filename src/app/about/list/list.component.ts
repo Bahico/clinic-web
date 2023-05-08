@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AboutService} from "../service/about.service";
 import {PartnerModel} from "../partner.model";
 import {NgForOf, NgIf} from "@angular/common";
-import {url} from "../../app.component";
+import {img, url} from "../../app.component";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {AuthorizationService} from "../../authorization/authorization.service";
 
@@ -45,4 +45,5 @@ export class AboutListComponent implements OnInit {
   }
 
   protected readonly url = url;
+    protected readonly img = img;
 }

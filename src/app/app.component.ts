@@ -29,5 +29,5 @@ export class AppComponent {
   }
 }
 
-export const url = 'http://52.91.2.65/';
-export const img = 'http://52.91.2.65';
+export const url = 'http://127.0.0.1:8000/';
+export const img = 'http://127.0.0.1:8000';

@@ -62,6 +62,9 @@
       "video": "Video"
     }
   },
+  "video": {
+    "title": "Videos"
+  },
   "settings": {
     "title": "Site settings",
     "description": "From here you can get information about the site and add information."

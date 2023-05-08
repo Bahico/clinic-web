@@ -25,7 +25,7 @@ import {
 } from "@ant-design/icons-angular/icons";
 import {ProductModule} from "./product/product.module";
 import {EmployeeModule} from "./employee/employee.module";
-import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NzOutletModule} from "ng-zorro-antd/core/outlet";
@@ -34,6 +34,8 @@ import {NzFormModule} from "ng-zorro-antd/form";
 import {NzStatisticModule} from "ng-zorro-antd/statistic";
 import { RequestHandlerInterceptor } from './core/request-handler.interpretator';
 import {AboutListComponent} from "./about/list/list.component";
+import { VideoComponent } from './video/video.component';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import {AboutListComponent} from "./about/list/list.component";
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    SettingsComponent
+    SettingsComponent,
+    VideoComponent
   ],
     imports: [
         BrowserModule,
@@ -72,6 +75,7 @@ import {AboutListComponent} from "./about/list/list.component";
         AboutListComponent,
     ],
   providers: [
+    NzMessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestHandlerInterceptor,
