@@ -1,0 +1,8 @@
+<div class="create-vide">
+  <label for="video-url">Video url</label>
+  <input id="video-url" nz-input [(ngModel)]="videoUrl" nzSize="large" placeholder="Video url">
+  <ng-container *nzModalFooter>
+    <button nz-button (click)="cancel()">Cancel</button>
+    <button nz-button (click)="create()" nzType="primary">Save</button>
+  </ng-container>
+</div>

@@ -27,7 +27,7 @@ import {ProductModule} from "./product/product.module";
 import {EmployeeModule} from "./employee/employee.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzOutletModule} from "ng-zorro-antd/core/outlet";
 import { SettingsComponent } from './settings/settings.component';
 import {NzFormModule} from "ng-zorro-antd/form";
@@ -38,6 +38,9 @@ import {AngularYandexMapsModule} from "angular8-yandex-maps";
 import { LocationComponent } from './settings/location/location.component';
 import { VideoComponent } from './video/video.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { VideoCreateComponent } from './video/create/create.component';
+import {NzInputModule} from "ng-zorro-antd/input";
+import { YoutubeUrlPipe } from './video/youtube-url.pipe';
 
 @NgModule({
   declarations: [
@@ -48,37 +51,41 @@ import { NzMessageService } from 'ng-zorro-antd/message';
     SettingsComponent,
     LocationComponent,
     SettingsComponent,
-    VideoComponent
+    VideoComponent,
+    VideoCreateComponent,
+    YoutubeUrlPipe
   ],
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        NzLayoutModule,
-        NzMenuModule,
-        PostCreateModule,
-        NzModalModule,
-        HttpClientModule,
-        EmployeeCreateModule,
-        NzButtonModule,
-        NzIconModule,
-        NzIconModule.forChild([AimOutline, PhoneOutline, PlusCircleOutline, MailOutline, PlusOutline, MenuOutline]),
-        ProductModule,
-        EmployeeModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        }),
-        NzOutletModule,
-        NzFormModule,
-        NzStatisticModule,
-        AboutListComponent,
-        AngularYandexMapsModule,
-    ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NzLayoutModule,
+    NzMenuModule,
+    PostCreateModule,
+    NzModalModule,
+    HttpClientModule,
+    EmployeeCreateModule,
+    NzButtonModule,
+    NzIconModule,
+    NzIconModule.forChild([AimOutline, PhoneOutline, PlusCircleOutline, MailOutline, PlusOutline, MenuOutline]),
+    ProductModule,
+    EmployeeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    NzOutletModule,
+    NzFormModule,
+    NzStatisticModule,
+    AboutListComponent,
+    AngularYandexMapsModule,
+    NzInputModule,
+    FormsModule,
+  ],
   providers: [
     NzMessageService,
     {

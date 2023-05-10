@@ -8,6 +8,8 @@ import {NewCreateComponent} from "../new/create/create.component";
 import {AboutCreate} from "../about/create/create.component";
 import {VideoService} from "../video/video.service";
 import {NzMessageService} from "ng-zorro-antd/message";
+import {LocationComponent} from "./location/location.component";
+import {VideoCreateComponent} from "../video/create/create.component";
 
 @Component({
   selector: 'app-settings',
@@ -19,9 +21,7 @@ export class SettingsComponent {
   loading = false;
   constructor(
     protected servie: SettingsService,
-    private readonly modal: NzModalService,
-    private readonly videoService: VideoService,
-    private readonly nzMessage: NzMessageService
+    private readonly modal: NzModalService
   ) {
     servie.get().subscribe(data=>{
       this.about = data
@@ -36,12 +36,11 @@ export class SettingsComponent {
     })
   }
 
-  videoCreate(event: any) {
-    console.log(true)
-    const formData = new FormData()
-    formData.append('video', event.target.files[0])
-    this.videoService.create(formData).subscribe(data=>{
-      this.nzMessage.success('Video muovafaqiyatli yaratildi!')
+  videoCreate() {
+    this.modal.create({
+      nzContent: VideoCreateComponent,
+      nzTitle: 'Video create',
+      nzWidth: '600px'
     })
   }
 
