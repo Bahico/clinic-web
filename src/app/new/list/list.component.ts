@@ -11,6 +11,7 @@ import {NewDetailComponent} from "../detail/detail.component";
 })
 export class NewListComponent {
   data: NewModel[] = [];
+  new?:NewModel;
   constructor(
     private readonly service: NewService,
     private readonly nzModal: NzModalService
@@ -29,13 +30,22 @@ export class NewListComponent {
   }
 
   detail(newModel: NewModel) {
-    this.nzModal.create({
-      nzContent: NewDetailComponent,
-      nzComponentParams: {
-        newModel: newModel
-      },
-      nzFooter: null,
-      nzWidth: '600px'
-    })
+    this.new = newModel
+    // this.nzModal.create({
+    //   nzContent: NewDetailComponent,
+    //   nzComponentParams: {
+    //     newModel: newModel
+    //   },
+    //   nzFooter: null,
+    //   nzWidth: '600px'
+    // })
+  }
+
+  deleteModel() {
+    if (this.new) {
+      const index = this.data.indexOf(this.new)
+      this.data.splice(index, 1)
+      this.new = undefined;
+    }
   }
 }

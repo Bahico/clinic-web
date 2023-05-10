@@ -9,6 +9,7 @@
       <div class="buttons" [ngClass]="{'video-buttons': !newModel.image && newModel.video}">
         <a nz-button nzType="primary" [href]="newModel.pdf" *ngIf="newModel.pdf" target="_blank">{{'new.table.pdf' | translate}}</a>
         <button nz-button nzType="primary" *ngIf="profileService.user" (click)="edit()">Edit</button>
+        <button nz-button nzType="primary" *ngIf="profileService.user" (click)="delete()">Delete</button>
       </div>
     </div>
 

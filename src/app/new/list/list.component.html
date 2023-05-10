@@ -20,3 +20,10 @@
     </div>
   </div>
 </div>
+
+
+<nz-modal [nzVisible]="!!new" *ngIf="new" [nzFooter]="null" nzTitle="" (nzOnCancel)="new = undefined">
+  <ng-container *nzModalContent>
+    <new-detail [newModel]="new" (deleteModal)="deleteModel()"></new-detail>
+  </ng-container>
+</nz-modal>

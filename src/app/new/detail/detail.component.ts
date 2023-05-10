@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NewModel} from "../new.model";
 import {AuthorizationService} from "../../authorization/authorization.service";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {NewCreateComponent} from "../create/create.component";
+import {NewService} from "../service/service.service";
 
 @Component({
   selector: 'new-detail',
@@ -10,11 +11,13 @@ import {NewCreateComponent} from "../create/create.component";
   styleUrls: ['./detail.component.scss']
 })
 export class NewDetailComponent {
-  newModel?: NewModel;
+  @Input() newModel?: NewModel;
+  @Output() deleteModal = new EventEmitter<boolean>()
 
   constructor(
     public readonly profileService: AuthorizationService,
-    private readonly nzModal: NzModalService
+    private readonly nzModal: NzModalService,
+    private readonly service: NewService,
   ) {}
 
   edit() {
@@ -25,6 +28,13 @@ export class NewDetailComponent {
       },
       nzFooter: null,
       nzWidth: '500px'
+    })
+  }
+  delete() {
+    //@ts-ignore
+    this.service.delete(this.newModel?.id).subscribe(()=>{
+      this.deleteModal.emit(true)
+      this.nzModal.closeAll()
     })
   }
 }

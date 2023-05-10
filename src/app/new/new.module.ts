@@ -11,6 +11,7 @@ import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import { NewDetailComponent } from './detail/detail.component';
 import {NzImageModule} from "ng-zorro-antd/image";
+import {NzModalModule} from "ng-zorro-antd/modal";
 
 
 
@@ -20,22 +21,23 @@ import {NzImageModule} from "ng-zorro-antd/image";
     NewCreateComponent,
     NewDetailComponent
   ],
-  imports: [
-    CommonModule,
-    RouterLink,
-    TranslateModule,
-    InfiniteScrollModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: NewListComponent
-      }
-    ]),
-    ReactiveFormsModule,
-    NzInputModule,
-    NzButtonModule,
-    NzIconModule,
-    NzImageModule
-  ]
+    imports: [
+        CommonModule,
+        RouterLink,
+        TranslateModule,
+        InfiniteScrollModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: NewListComponent
+            }
+        ]),
+        ReactiveFormsModule,
+        NzInputModule,
+        NzButtonModule,
+        NzIconModule,
+        NzImageModule,
+        NzModalModule
+    ]
 })
 export class NewModule { }
