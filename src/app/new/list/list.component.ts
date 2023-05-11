@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {NewService} from "../service/service.service";
 import {NewModel} from "../new.model";
 import {NzModalService} from "ng-zorro-antd/modal";
-import {NewDetailComponent} from "../detail/detail.component";
 
 @Component({
   selector: 'new-list',
@@ -31,14 +30,6 @@ export class NewListComponent {
 
   detail(newModel: NewModel) {
     this.new = newModel
-    // this.nzModal.create({
-    //   nzContent: NewDetailComponent,
-    //   nzComponentParams: {
-    //     newModel: newModel
-    //   },
-    //   nzFooter: null,
-    //   nzWidth: '600px'
-    // })
   }
 
   deleteModel() {

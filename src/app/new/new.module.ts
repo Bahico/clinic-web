@@ -12,6 +12,7 @@ import {NzIconModule} from "ng-zorro-antd/icon";
 import { NewDetailComponent } from './detail/detail.component';
 import {NzImageModule} from "ng-zorro-antd/image";
 import {NzModalModule} from "ng-zorro-antd/modal";
+import {AppModule} from "../app.module";
 
 
 
@@ -26,7 +27,7 @@ import {NzModalModule} from "ng-zorro-antd/modal";
         RouterLink,
         TranslateModule,
         InfiniteScrollModule,
-        RouterModule.forChild([
+        RouterModule.forRoot([
             {
                 path: '',
                 component: NewListComponent
@@ -37,7 +38,8 @@ import {NzModalModule} from "ng-zorro-antd/modal";
         NzButtonModule,
         NzIconModule,
         NzImageModule,
-        NzModalModule
+        NzModalModule,
+        AppModule
     ]
 })
 export class NewModule { }

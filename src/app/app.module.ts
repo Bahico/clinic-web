@@ -43,58 +43,61 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import { YoutubeUrlPipe } from './video/youtube-url.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    FooterComponent,
-    SettingsComponent,
-    LocationComponent,
-    SettingsComponent,
-    VideoComponent,
-    VideoCreateComponent,
-    YoutubeUrlPipe
-  ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    NzLayoutModule,
-    NzMenuModule,
-    PostCreateModule,
-    NzModalModule,
-    HttpClientModule,
-    EmployeeCreateModule,
-    NzButtonModule,
-    NzIconModule,
-    NzIconModule.forChild([AimOutline, PhoneOutline, PlusCircleOutline, MailOutline, PlusOutline, MenuOutline]),
-    ProductModule,
-    EmployeeModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    NzOutletModule,
-    NzFormModule,
-    NzStatisticModule,
-    AboutListComponent,
-    AngularYandexMapsModule,
-    NzInputModule,
-    FormsModule,
-  ],
-  providers: [
-    NzMessageService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: RequestHandlerInterceptor,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        HomeComponent,
+        FooterComponent,
+        SettingsComponent,
+        LocationComponent,
+        SettingsComponent,
+        VideoComponent,
+        VideoCreateComponent,
+        YoutubeUrlPipe
+    ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        NzLayoutModule,
+        NzMenuModule,
+        PostCreateModule,
+        NzModalModule,
+        HttpClientModule,
+        EmployeeCreateModule,
+        NzButtonModule,
+        NzIconModule,
+        NzIconModule.forChild([AimOutline, PhoneOutline, PlusCircleOutline, MailOutline, PlusOutline, MenuOutline]),
+        ProductModule,
+        EmployeeModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        NzOutletModule,
+        NzFormModule,
+        NzStatisticModule,
+        AboutListComponent,
+        AngularYandexMapsModule,
+        NzInputModule,
+        FormsModule,
+    ],
+    providers: [
+        NzMessageService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: RequestHandlerInterceptor,
+            multi: true
+        }
+    ],
+    exports: [
+        YoutubeUrlPipe
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

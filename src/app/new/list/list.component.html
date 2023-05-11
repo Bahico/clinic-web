@@ -22,8 +22,8 @@
 </div>
 
 
-<nz-modal [nzVisible]="!!new" *ngIf="new" [nzFooter]="null" nzTitle="" (nzOnCancel)="new = undefined">
+<nz-modal [nzVisible]="!!new" [nzFooter]="null" nzTitle="" (nzOnCancel)="new = undefined">
   <ng-container *nzModalContent>
-    <new-detail [newModel]="new" (deleteModal)="deleteModel()"></new-detail>
+    <new-detail *ngIf="new" [newModel]="new" (deleteModal)="deleteModel()"></new-detail>
   </ng-container>
 </nz-modal>
