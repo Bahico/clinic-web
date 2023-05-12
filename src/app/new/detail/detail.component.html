@@ -2,8 +2,9 @@
   <div class="container">
     <div class="image">
       <img nz-image [nzSrc]="newModel.image" *ngIf="newModel.image" alt="">
-      <iframe width="560" height="315" [src]="newModel.video | youtubeUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+      <video *ngIf="!newModel.image && newModel.video" controls>
+        <source [src]="newModel.video">
+      </video>
 
       <div class="buttons" [ngClass]="{'video-buttons': !newModel.image && newModel.video}">
         <a nz-button nzType="primary" [href]="newModel.pdf" *ngIf="newModel.pdf" target="_blank">{{'new.table.pdf' | translate}}</a>

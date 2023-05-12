@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {NewService} from "../service/service.service";
 import {NewModel} from "../new.model";
 import {NzModalService} from "ng-zorro-antd/modal";
+import {img} from "../../app.component";
 
 @Component({
   selector: 'new-list',
@@ -39,4 +40,6 @@ export class NewListComponent {
       this.new = undefined;
     }
   }
+
+    protected readonly img = img;
 }

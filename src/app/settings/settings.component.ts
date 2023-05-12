@@ -9,7 +9,6 @@ import {AboutCreate} from "../about/create/create.component";
 import {VideoService} from "../video/video.service";
 import {NzMessageService} from "ng-zorro-antd/message";
 import {LocationComponent} from "./location/location.component";
-import {VideoCreateComponent} from "../video/create/create.component";
 
 @Component({
   selector: 'app-settings',
@@ -19,9 +18,13 @@ import {VideoCreateComponent} from "../video/create/create.component";
 export class SettingsComponent {
   about?: SettingsModel;
   loading = false;
+  videoLoading = false;
+
   constructor(
     protected servie: SettingsService,
-    private readonly modal: NzModalService
+    private readonly modal: NzModalService,
+    private readonly videoService: VideoService,
+    private readonly nzMessage: NzMessageService
   ) {
     servie.get().subscribe(data=>{
       this.about = data
@@ -36,11 +39,16 @@ export class SettingsComponent {
     })
   }
 
-  videoCreate() {
-    this.modal.create({
-      nzContent: VideoCreateComponent,
-      nzTitle: 'Video create',
-      nzWidth: '600px'
+  videoCreate(event: any) {
+    this.videoLoading = true;
+    const data = new FormData()
+    data.append('video', event.target.files[0])
+    this.videoService.create(data).subscribe(data=>{
+      this.videoLoading = false;
+      this.nzMessage.success('Muofaqiyatli yaratildi.')
+    }, () => {
+      this.videoLoading = false;
+      this.nzMessage.error('Xato ishladi')
     })
   }
 

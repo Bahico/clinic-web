@@ -38,9 +38,9 @@ import {AngularYandexMapsModule} from "angular8-yandex-maps";
 import { LocationComponent } from './settings/location/location.component';
 import { VideoComponent } from './video/video.component';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { VideoCreateComponent } from './video/create/create.component';
 import {NzInputModule} from "ng-zorro-antd/input";
 import { YoutubeUrlPipe } from './video/youtube-url.pipe';
+import {ActivatedRoute} from "@angular/router";
 
 @NgModule({
     declarations: [
@@ -52,7 +52,6 @@ import { YoutubeUrlPipe } from './video/youtube-url.pipe';
         LocationComponent,
         SettingsComponent,
         VideoComponent,
-        VideoCreateComponent,
         YoutubeUrlPipe
     ],
     imports: [

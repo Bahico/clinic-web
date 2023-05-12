@@ -7,7 +7,7 @@
     <div class="video-container">
       <div *ngFor="let model of data" style="position: relative; display: block">
         <button nz-button nzDanger nzType="primary" (click)="delete(model)">Delete</button>
-        <iframe width="560" height="315" [src]="model.video | youtubeUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <video [src]="img+model.video" controls></video>
       </div>
     </div>
   </div>

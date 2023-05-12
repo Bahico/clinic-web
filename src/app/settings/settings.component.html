@@ -13,7 +13,8 @@
   <button nz-button nzType="primary" (click)="clickNewsCreate()">New add</button>
   <button nz-button nzType="primary" (click)="clickPartnerCreate()">Partner add</button>
   <button nz-button nzType="primary" (click)="clickLocationEdit()">Edit location</button>
-  <button nz-button nzType="primary" (click)="videoCreate()">Video create</button>
+  <button nz-button nzType="primary" (click)="inputVideo.click()" [nzLoading]="videoLoading">Video create</button>
+  <input type="file" accept="vide/*" style="display:none;" (change)="videoCreate($event)" #inputVideo>
   <button nz-button><span nz-icon [nzType]="'sync'" [nzSpin]="loading" (click)="refresh()"></span></button>
 </div>
 

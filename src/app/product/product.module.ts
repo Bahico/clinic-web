@@ -7,7 +7,7 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import { DetailComponent } from './detail/detail.component';
 import {NzCardModule} from "ng-zorro-antd/card";
-import {RouterModule} from "@angular/router";
+import {RouterLink, RouterModule} from "@angular/router";
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import {NzDrawerModule} from "ng-zorro-antd/drawer";
 import {PostCreateModule} from "./create/post-create.module";

@@ -23,6 +23,7 @@ export class NewCreateComponent implements OnInit {
   });
   img: string | undefined = '';
   url = false;
+  loading = false;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -44,6 +45,7 @@ export class NewCreateComponent implements OnInit {
 
 
   save() {
+    this.loading = true;
     const formData: any = new FormData()
     formData.append('title', this.editForm.value.title)
     formData.append('description', this.editForm.value.description)
@@ -53,10 +55,18 @@ export class NewCreateComponent implements OnInit {
     if (this.newModel) {
       this.service.update(formData, this.newModel.id).subscribe(data=>{
         this.activeModal.closeAll()
+        this.loading = false;
+      }, () => {
+        this.loading = false;
+        this.error = true;
       })
     } else
       this.service.create(formData).subscribe(() =>{
         this.activeModal.closeAll()
+        this.loading = false;
+      }, () => {
+        this.loading = false;
+        this.error = true;
       })
   }
 

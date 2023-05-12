@@ -27,7 +27,7 @@ import {AppModule} from "../app.module";
         RouterLink,
         TranslateModule,
         InfiniteScrollModule,
-        RouterModule.forRoot([
+        RouterModule.forChild([
             {
                 path: '',
                 component: NewListComponent
@@ -39,7 +39,6 @@ import {AppModule} from "../app.module";
         NzIconModule,
         NzImageModule,
         NzModalModule,
-        AppModule
     ]
 })
 export class NewModule { }
