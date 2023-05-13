@@ -23,7 +23,13 @@
       flex-wrap: wrap;
       justify-content: center;
       div {
+        display: flex;
+        justify-content: center;
+        max-width: calc(100% - 10vw);
         margin: 4px;
+        video {
+          max-width: calc(100% - 10vw);
+        }
       }
       button {
         position: absolute;

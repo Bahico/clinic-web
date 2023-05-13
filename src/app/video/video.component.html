@@ -5,7 +5,7 @@
     </div>
 
     <div class="video-container">
-      <div *ngFor="let model of data" style="position: relative; display: block">
+      <div *ngFor="let model of data">
         <button nz-button nzDanger nzType="primary" (click)="delete(model)">Delete</button>
         <video [src]="img+model.video" controls></video>
       </div>
