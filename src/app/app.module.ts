@@ -29,74 +29,73 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzOutletModule} from "ng-zorro-antd/core/outlet";
-import { SettingsComponent } from './settings/settings.component';
+import {SettingsComponent} from './settings/settings.component';
 import {NzFormModule} from "ng-zorro-antd/form";
 import {NzStatisticModule} from "ng-zorro-antd/statistic";
-import { RequestHandlerInterceptor } from './core/request-handler.interpretator';
+import {RequestHandlerInterceptor} from './core/request-handler.interpretator';
 import {AboutListComponent} from "./about/list/list.component";
 import {AngularYandexMapsModule} from "angular8-yandex-maps";
-import { LocationComponent } from './settings/location/location.component';
-import { VideoComponent } from './video/video.component';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import {LocationComponent} from './settings/location/location.component';
+import {VideoComponent} from './video/video.component';
+import {NzMessageService} from 'ng-zorro-antd/message';
 import {NzInputModule} from "ng-zorro-antd/input";
-import { YoutubeUrlPipe } from './video/youtube-url.pipe';
-import {ActivatedRoute} from "@angular/router";
+import {YoutubeUrlPipe} from './video/youtube-url.pipe';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        NavbarComponent,
-        HomeComponent,
-        FooterComponent,
-        SettingsComponent,
-        LocationComponent,
-        SettingsComponent,
-        VideoComponent,
-        YoutubeUrlPipe
-    ],
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        NzLayoutModule,
-        NzMenuModule,
-        PostCreateModule,
-        NzModalModule,
-        HttpClientModule,
-        EmployeeCreateModule,
-        NzButtonModule,
-        NzIconModule,
-        NzIconModule.forChild([AimOutline, PhoneOutline, PlusCircleOutline, MailOutline, PlusOutline, MenuOutline]),
-        ProductModule,
-        EmployeeModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        }),
-        NzOutletModule,
-        NzFormModule,
-        NzStatisticModule,
-        AboutListComponent,
-        AngularYandexMapsModule,
-        NzInputModule,
-        FormsModule,
-    ],
-    providers: [
-        NzMessageService,
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: RequestHandlerInterceptor,
-            multi: true
-        }
-    ],
-    exports: [
-        YoutubeUrlPipe
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent,
+    SettingsComponent,
+    LocationComponent,
+    SettingsComponent,
+    VideoComponent,
+    YoutubeUrlPipe,
+  ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NzLayoutModule,
+    NzMenuModule,
+    PostCreateModule,
+    NzModalModule,
+    HttpClientModule,
+    EmployeeCreateModule,
+    NzButtonModule,
+    NzIconModule,
+    NzIconModule.forChild([AimOutline, PhoneOutline, PlusCircleOutline, MailOutline, PlusOutline, MenuOutline]),
+    ProductModule,
+    EmployeeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    NzOutletModule,
+    NzFormModule,
+    NzStatisticModule,
+    AboutListComponent,
+    AngularYandexMapsModule,
+    NzInputModule,
+    FormsModule,
+  ],
+  providers: [
+    NzMessageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestHandlerInterceptor,
+      multi: true
+    }
+  ],
+  exports: [
+    YoutubeUrlPipe
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

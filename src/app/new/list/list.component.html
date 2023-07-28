@@ -3,27 +3,22 @@
     <h1>{{'new.title' | translate}}</h1>
   </div>
   <div>
-    <p routerLink="/product" class="description">{{'new.description' | translate}}</p>
+    <p routerLink="/product" class="description">{{'product.description' | translate}}</p>
   </div>
 </div>
 
-<div class="news" infinite-scroll (scrolled)="next()">
+<div class="news">
   <div class="container">
-    <div class="new" *ngFor="let model of data" (click)="detail(model)">
+    <div class="new" *ngFor="let model of data">
+      <video [src]="model.video" *ngIf="model.video"></video>
       <img [src]="model.image" *ngIf="model.image" alt="">
-      <video [src]="model.video" *ngIf="model.video && !model.image"></video>
+
       <div class="information">
-        <span class="title">{{model.title}}</span>
-        <p class="description">{{model.description}}</p>
+        <h1>{{model.title}}</h1>
+        <p>{{model.description}}</p>
       </div>
-      <span class="create-date">{{model.create_date | date : 'dd.MM.yyyy'}}</span>
+
+      <span class="date">{{model.create_date}}</span>
     </div>
   </div>
 </div>
-
-
-<nz-modal [nzVisible]="!!new" [nzFooter]="null" nzTitle="" (nzOnCancel)="new = undefined">
-  <ng-container *nzModalContent>
-    <new-detail *ngIf="new" [newModel]="new" (deleteModal)="deleteModel()"></new-detail>
-  </ng-container>
-</nz-modal>

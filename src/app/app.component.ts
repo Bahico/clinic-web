@@ -24,10 +24,10 @@ export class AppComponent {
     service.detail().subscribe(data=>{
       service.user = data
     }, () => {
-      console.log('http://52.91.2.65/authorization/login <= Login')
+      console.log('/authorization/login <= Login')
     })
   }
 }
 
-export const url = 'http://52.91.2.65/';
-export const img = 'http://52.91.2.65';
+export const url = 'http://154.53.55.68/'
+export const img = 'http://154.53.55.68'

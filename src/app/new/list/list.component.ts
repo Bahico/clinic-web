@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import {NewService} from "../service/service.service";
+import {NewService} from "../service/new.service";
 import {NewModel} from "../new.model";
-import {NzModalService} from "ng-zorro-antd/modal";
-import {img} from "../../app.component";
 
 @Component({
   selector: 'new-list',
@@ -11,35 +9,19 @@ import {img} from "../../app.component";
 })
 export class NewListComponent {
   data: NewModel[] = [];
-  new?:NewModel;
   constructor(
     private readonly service: NewService,
-    private readonly nzModal: NzModalService
   ) {
     service.all().subscribe(data=>{
       this.data = data.results;
-      service.nextUrl = data.next;
+      service.next = data.next;
     })
   }
 
   next() {
-    this.service.next().subscribe(data=>{
-      this.service.nextUrl = data.next;
+    this.service.nextPage().subscribe(data=> {
       this.data.push(...data.results)
+      this.service.next = data.next
     })
   }
-
-  detail(newModel: NewModel) {
-    this.new = newModel
-  }
-
-  deleteModel() {
-    if (this.new) {
-      const index = this.data.indexOf(this.new)
-      this.data.splice(index, 1)
-      this.new = undefined;
-    }
-  }
-
-    protected readonly img = img;
 }

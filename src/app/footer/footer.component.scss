@@ -41,6 +41,15 @@
 
   }
 }
+.map_icon {
+
+  svg {
+    margin-top: 2px;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+  }
+}
 
 ::ng-deep h1 {
   color: white;
@@ -50,6 +59,10 @@
   .footer {
     .container {
       .row {
+        .j-c-end {
+          justify-content: end;
+          text-align: end;
+        }
         flex-wrap: wrap;
         text-align: center;
         .col-lg-3 {
